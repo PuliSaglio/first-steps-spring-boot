@@ -4,6 +4,15 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+# SSH Keys #
+*.pem
+*.ppk
+ 
+# Package Files #
+*.jar
+*.war
+*.ear
+
 ### STS ###
 .apt_generated
 .classpath
