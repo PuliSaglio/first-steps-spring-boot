@@ -1,4 +1,4 @@
-package br.com.puli.firststepsspringboot;
+package br.com.puli;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
