@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 import java.util.concurrent.atomic.AtomicLong;
-import br.com.puli.exceptions.UnsupportedMathOperationException;
+import br.com.puli.exceptions.ResourceNotFoundException;
 
 import static br.com.puli.converters.NumberConverter.isNumeric;
 import static br.com.puli.converters.NumberConverter.convertToDouble;
@@ -22,7 +22,7 @@ public class MathController {
             @PathVariable(value = "numberTwo")
             String numberTwo) throws Exception{
         if(!isNumeric(numberOne) || !isNumeric(numberTwo)){
-            throw new UnsupportedMathOperationException("Please set a numeric value");
+            throw new ResourceNotFoundException("Please set a numeric value");
         }
         return convertToDouble(numberOne) + convertToDouble(numberTwo);
     }
@@ -33,7 +33,7 @@ public class MathController {
             @PathVariable(value = "numberTwo") String numberTwo
     ) throws Exception{
         if(!isNumeric(numberOne) || !isNumeric(numberTwo)){
-            throw new UnsupportedMathOperationException("Please set a numeric value");
+            throw new ResourceNotFoundException("Please set a numeric value");
         }
         return convertToDouble(numberOne) - convertToDouble(numberTwo);
     }
@@ -44,7 +44,7 @@ public class MathController {
             @PathVariable(value = "numberTwo") String numberTwo
     ) throws Exception{
         if(!isNumeric(numberOne) || !isNumeric(numberTwo)){
-            throw new UnsupportedMathOperationException("Please set a numeric value");
+            throw new ResourceNotFoundException("Please set a numeric value");
         }
         return convertToDouble(numberOne) * convertToDouble(numberTwo);
     }
@@ -55,7 +55,7 @@ public class MathController {
             @PathVariable(value = "numberTwo") String numberTwo
     ) throws Exception{
         if(!isNumeric(numberOne) || !isNumeric(numberTwo)){
-            throw new UnsupportedMathOperationException("Please set a numeric value");
+            throw new ResourceNotFoundException("Please set a numeric value");
         }
         return convertToDouble(numberOne) / convertToDouble(numberTwo);
     }
@@ -66,7 +66,7 @@ public class MathController {
             @PathVariable(value = "numberTwo") String numberTwo
     ) throws Exception{
         if(!isNumeric(numberOne) || !isNumeric(numberTwo)){
-            throw new UnsupportedMathOperationException("Please set a numeric value");
+            throw new ResourceNotFoundException("Please set a numeric value");
         }
         return (convertToDouble(numberOne) + convertToDouble(numberTwo)) / 2;
     }
@@ -76,7 +76,7 @@ public class MathController {
             @PathVariable(value = "number") String number
     ) throws Exception{
         if(!isNumeric(number)){
-            throw new UnsupportedMathOperationException("Please set a numeric value");
+            throw new ResourceNotFoundException("Please set a numeric value");
         }
         return sqrt(convertToDouble(number));
     }

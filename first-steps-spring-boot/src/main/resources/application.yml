@@ -1,1 +1,11 @@
-spring.application.name=first-steps-spring-boot
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/rest_with_spring_boot?useTimezone=true&serverTimezone=UTC
+    username: root
+    password: pulipuli10
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      show_sql: false
