@@ -5,6 +5,7 @@ spring:
     username: root
     password: pulipuli10
   jpa:
+    open-in-view: false
     hibernate:
       ddl-auto: update
     properties:
