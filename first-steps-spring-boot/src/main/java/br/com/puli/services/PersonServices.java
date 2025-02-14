@@ -3,8 +3,10 @@ package br.com.puli.services;
 import br.com.puli.data.vo.v1.PersonVO;
 import br.com.puli.exceptions.ResourceNotFoundException;
 import br.com.puli.mapper.DozerMapper;
+import br.com.puli.mapper.custom.PersonMapper;
 import br.com.puli.model.Person;
 import br.com.puli.repositories.PersonRepository;
+import data.vo.v2.PersonVOV2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,9 @@ public class PersonServices {
 
     @Autowired
     PersonRepository repository;
+
+    @Autowired
+    PersonMapper mapper;
 
     public List<PersonVO> findAll() {
         logger.info("Finding all PersonVOs...");
@@ -39,6 +44,13 @@ public class PersonServices {
         logger.info("Creating new PersonVO...");
         var entity = DozerMapper.parseObject(person, Person.class);
         var vo = DozerMapper.parseObject(repository.save(entity), PersonVO.class);
+        return vo;
+    }
+
+    public PersonVOV2 createV2(PersonVOV2 person) {
+        logger.info("Creating new PersonVO...");
+        var entity = mapper.convertVoToEntity(person);
+        var vo = mapper.convertEntityToVo(repository.save(entity));
         return vo;
     }
 
